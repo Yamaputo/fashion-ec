@@ -1,0 +1,2 @@
+・docker起動コマンド
+docker-compose up -d workspace php-fpm nginx mysql phpmyadmin
