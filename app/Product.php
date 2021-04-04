@@ -6,7 +6,16 @@ use Illuminate\Database\Eloquent\Model;
 
 class Product extends Model
 {
-    public function scopeSelectAllProducts() {
+    public function carts()
+    {
+        return $this->belongsToMany(
+          Cart::class,
+          'line_items',
+        )->withPivot(['id', 'quantity']);
+    }
+
+    public function scopeSelectAllProducts() 
+    {
         $result = DB::select("SELECT * FROM products");
         return $result;
     }
